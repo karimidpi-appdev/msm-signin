@@ -12,5 +12,9 @@
 #  updated_at  :datetime         not null
 #  director_id :integer
 #
-class Movie < ApplicationRecord
+class Movie < 
+  belongs_to :director
+  has_many :characters
+
+  has_many :cast, :through => :characters, :source => :actor
 end
