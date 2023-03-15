@@ -20,9 +20,9 @@
         </a>
       </div> 
 
-      <% current_user_bookmark = Bookmark.where({ :movie_id => @the_movie.id, :user_id => session.fetch(:user_id) }) %>
+      <% current_user_bookmarks = @current_user.bookmarks.where({ :movie_id => @the_movie.id }) %>
 
-      <% the_bookmark = current_user_bookmark.at(0) %>
+      <% the_bookmark = current_user_bookmarks.at(0) %>
 
       <% if the_bookmark == nil %>
         <div>
